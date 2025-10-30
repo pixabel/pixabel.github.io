@@ -1,0 +1,118 @@
+/* Skills section improvements
+   - Use grid for a stable two-column layout
+   - Allow the section to grow (override 100vh snap if present globally)
+   - Responsive breakpoints to stack columns on small screens
+*/
+
+/* Ensure this section can grow and doesn't force content to overlap */
+#skills {
+  /* override global fixed-height section if present */
+  height: auto !important;
+  min-height: 60vh;
+  padding: 60px 20px;
+  display: block;
+}
+
+/* Inner container to limit width and center content */
+.skills-inner {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* Heading spacing */
+#skills h4 {
+  margin-bottom: 28px;
+  font-size: 34px;
+  color: rgb(199, 183, 213);
+  text-align: left;
+}
+
+/* Two-column layout: main tech area + side languages column */
+.skills-container {
+  display: grid;
+  grid-template-columns: 1fr 280px; /* flexible main column + fixed-ish sidebar */
+  gap: 36px;
+  align-items: start;
+  width: 100%;
+}
+
+/* Make the sidebar visually distinct and pinned (optional) */
+.languages-spoken {
+  background: rgba(255,255,255,0.02);
+  padding: 18px;
+  border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+}
+
+/* Make sure lists don't overflow the sidebar */
+.languages-list {
+  list-style: none;
+  margin-top: 12px;
+  padding: 0;
+}
+.languages-list li {
+  padding: 6px 0;
+  border-bottom: 1px solid rgba(199, 183, 213, 0.07);
+}
+.languages-list li:last-child { border-bottom: none; }
+
+/* Tech stack column uses a responsive grid for the cards */
+.tech-stack-categories {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(180px, 1fr));
+  gap: 20px;
+}
+
+/* Card visuals */
+.tech-card {
+  background-color: rgba(255, 255, 255, 0.03);
+  padding: 18px;
+  border-radius: 10px;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  min-height: 120px;
+  overflow: hidden;
+}
+.tech-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 24px rgba(199, 183, 213, 0.08);
+}
+
+/* Lists inside cards */
+.skills-list {
+  list-style: none;
+  margin: 8px 0 0 0;
+  padding: 0;
+}
+.skills-list li {
+  padding: 6px 0;
+  border-bottom: 1px solid rgba(199, 183, 213, 0.06);
+}
+.skills-list li:last-child { border-bottom: none; }
+
+/* Make sure long cards don't break layout; let them scroll internally */
+.card-body {
+  max-height: 320px;
+  overflow-y: auto;
+}
+
+/* Responsive: stack everything on small screens */
+@media (max-width: 900px) {
+  .skills-container {
+    grid-template-columns: 1fr; /* single column */
+  }
+
+  .tech-stack-categories {
+    grid-template-columns: 1fr; /* each card full width */
+  }
+
+  .languages-spoken {
+    order: 2;
+    width: 100%;
+  }
+}
+
+/* Small-screen typography tweaks */
+@media (max-width: 480px) {
+  #skills h4 { font-size: 28px; }
+  .tech-card { padding: 14px; }
+}

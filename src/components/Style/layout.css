@@ -1,0 +1,52 @@
+/* Scroll / main layout */
+main {
+  height: 100vh;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+}
+
+section {
+  height: 100vh;
+  scroll-snap-align: start;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+}
+
+/* Main content offset when you have a left sidebar or wide nav */
+.main-content {
+  margin-left: 250px;
+  padding: 20px;
+}
+
+/* Basic headings + paragraph defaults */
+.main-content h4,
+.about-container h4,
+#skills h4 {
+  color: rgb(199, 183, 213);
+}
+
+p {
+  color: white;
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+h5 {
+  color: rgb(199, 183, 213);
+}
+
+/* iframe default */
+iframe {
+  height: 600px;
+}
+
+/* Responsive fallbacks for main layout — override in specific files where necessary */
+@media (max-width: 1024px) {
+  .main-content { margin-left: 0; padding: 10px; }
+}
+@media (max-width: 768px) {
+  .main-content { padding: 10px; }
+  iframe { height: 300px; }
+}

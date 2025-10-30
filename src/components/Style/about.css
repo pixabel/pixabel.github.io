@@ -1,0 +1,25 @@
+/* About section */
+#about {
+  display: flex;
+  justify-content: center;
+  padding: 40px 20px;
+}
+
+.about-container {
+  max-width: 800px;
+  text-align: left;
+}
+
+.about-container h4 {
+  text-align: left;
+  margin-bottom: 30px;
+  font-size: 36px;
+  color: rgb(199, 183, 213);
+}
+
+.about-container p {
+  font-size: 18px;
+  color: white;
+  margin-bottom: 20px;
+  line-height: 1.7;
+}

@@ -1,0 +1,36 @@
+/* Resets and global rules */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  scroll-behavior: smooth;
+  overflow: hidden;
+}
+
+/* Global type/color/background: apply to body rather than every element */
+body {
+  font-family: "Montserrat", "Poppins", sans-serif;
+  color: #ffffff;
+  background-color: #000000;
+  background-image: url('../assets/starrybackground.png');
+  background-attachment: fixed;
+  background-repeat: repeat;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Accessibility: focus outline for keyboard users */
+:focus {
+  outline: 3px solid #2563eb;
+  outline-offset: 2px;
+}
+
+/* Small container utility */
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
